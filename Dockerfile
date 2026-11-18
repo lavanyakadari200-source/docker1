@@ -1,6 +1,16 @@
-# Use an official OpenJDK runtime as a parent image
-FROM openjdk:21-jdk-slim
-# Set the working directory inside the container
+
+# Use an official Java 21 image
+FROM eclipse-temurin:21-jdk
+
+# Set working directory
 WORKDIR /app
-#Copy the current directory contents into the container at /app COPY. .
-# Compile the Java program RuN javac samplename.java #Conmand to run the program CMD ["java", "samplename"]
+
+# Copy Java source code
+COPY . .
+
+# Compile Java program
+RUN javac samplename.java
+
+# Run Java program
+CMD ["java", "samplename"]
+
